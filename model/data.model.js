@@ -11,16 +11,19 @@ let dataSchema = mongoose.Schema({
         type : String,
         required : true
     },
+    type : {
+      type : String,
+      required : true  
+    },
     content : {
         type : Array,
         required : true
     }
 });
 
-const linearDS = mongoose.model("LinearDS" , dataSchema);
-const nonLinearDS = mongoose.model("Non-LinearDS" , dataSchema);
 
-module.exports = {
-    linearDS,
-    nonLinearDS
-};
+
+const ds = mongoose.model("Data Structures" , dataSchema);
+
+module.exports = ds;
+

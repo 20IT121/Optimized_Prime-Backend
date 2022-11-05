@@ -7,6 +7,8 @@ const app = express();
 const PORT = 8080;
 
 const dataRouter = require('./controller/data.router');
+const dbConnect = require('./db');
+
 
 // First to parse the data we will create middlewares
 app.use(express.json());
@@ -14,6 +16,7 @@ app.use(express.urlencoded());
 // for parsing json type data and url encoded data like JSON objects
 
 app.use('/api',dataRouter);
+dbConnect();
 
 app.listen(PORT , (err)=>{
     if(err)
